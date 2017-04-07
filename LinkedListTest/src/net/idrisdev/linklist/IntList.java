@@ -28,7 +28,7 @@ public class IntList {
     public void append(int data){
         Node newNode = new Node(data);
 
-        if (this.isEmpty()){
+        if (!this.isEmpty()){
             getTail().setNext(newNode);
         } else {
             head = newNode;

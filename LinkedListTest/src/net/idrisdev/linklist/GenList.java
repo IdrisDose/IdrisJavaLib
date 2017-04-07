@@ -24,13 +24,15 @@ public class GenList<T> {
     }
 
     public void prepend(T data){
-
+        Node newNode = new Node(data);
+        newNode.setNext(head);
+        head = newNode;
     }
 
     public void append(T data){
         Node newNode = new Node(data);
 
-        if (this.isEmpty()){
+        if (!this.isEmpty()){
             getTail().setNext(newNode);
         } else {
             head = newNode;
@@ -46,14 +48,20 @@ public class GenList<T> {
     public Node getTail(){
         if(this.isEmpty())
             return new Node("EMPTY");
-            if (head.Next() != null) {
-                Node curr = head.Next();
-                while (curr != null) {
-                    curr = curr.Next();
-                }
-                return curr;
+
+        if (head.Next() != null) {
+            Node curr = head.Next();
+            boolean kek = true;
+            while (kek) {
+
+                if(curr.Next()==null)
+                   return curr;
+
+               curr = curr.Next();
             }
-            return head;
+            return curr;
+        }
+        return head;
 
     }
 

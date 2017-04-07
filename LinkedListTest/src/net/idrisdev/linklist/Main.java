@@ -6,16 +6,20 @@ package net.idrisdev.linklist;
 public class Main {
 
     public static void main(String[] args) {
-        IntList intList = new IntList();
         GenList list = new GenList<String>();
+        GenList intList = new GenList<Integer>();
 
         list.append("String");
         list.append("StringTwo");
 
-        intList.append(3);
-        intList.append(5);
+        for(int i =0; i <= 125; i++){
+            intList.append(i);
+        }
 
-        intList.printData();
+        intList.prepend(1337);
+        intList.prepend((int)intList.getHead()+10);
+
         list.printData();
+        intList.printData();
     }
 }
